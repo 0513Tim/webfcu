@@ -141,7 +141,7 @@
         document.getElementById('modalOverlay').style.display = 'none';
     }
     function testXSS() {
-        let userInput = document.getElementById('xssInput').value;
+        var userInput = document.getElementById('xssInput').value;
         document.getElementById('xssOutput').innerHTML = userInput; // 直接插入可能導致 XSS
     }
 </script>
