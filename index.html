@@ -144,6 +144,7 @@
         var userInput = document.getElementById('xssInput').value;
         document.getElementById('xssOutput').innerHTML = userInput; // 直接插入可能導致 XSS
     }
+     <!--可以試試看輸入<script>alert('XSS 成功！') < /script>-->
 </script>
 </body>
 </html>
