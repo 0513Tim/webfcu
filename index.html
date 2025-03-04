@@ -9,26 +9,65 @@
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             text-align: center;
-            padding: 50px;
+            margin: 0;
+        }
+        .header {
+            background: linear-gradient(to right, #f9a06f, #ec6f5d);
+            color: white;
+            padding: 10px 20px;
+            height: 50px;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+        .menu-icon {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+        .header-right span, .header-right a {
+            margin-left: 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(to right, #f9a06f, #ec6f5d);
+            display: inline-block;
+            margin-left: 10px;
         }
         .container {
             background: white;
             padding: 20px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             display: inline-block;
-        }
-        .header {
-            background-color: #ff6600;
-            color: white;
-            padding: 10px;
-            font-size: 18px;
-            text-align: center;
+            margin-top: 20px;
         }
         h1 {
             color: #d9534f;
         }
         p {
             color: #555;
+        }
+        img {
+            width: 20px;
+            height: 20px;
+            background-color: #f9a06f;
+            display: inline-block;
+            margin-left: 10px;
         }
         .reload-btn {
             display: inline-block;
@@ -42,7 +81,17 @@
     </style>
 </head>
 <body>
-<div class="header">系統通知</div>
+<div class="header">
+    <div class="header-left">
+        <a href="#" ><img src="https://myfcu.fcu.edu.tw/main/S9909/myfcumain/img/ui/nine_squares.png" alt="選單" class="icon"></a>
+    </div>
+    <div class="header-right">
+        <span>黃議廷你好</span>
+        <a href="#">ENGLISH</a>
+        <a href="index.html"><img src="https://myfcu.fcu.edu.tw/main/S9909/myfcumain/img/ui/homepage.png" alt="首頁" class="icon"></a>
+        <a href="index.html"><img src="https://myfcu.fcu.edu.tw/main/S9909/myfcumain/img/ui/gear.png" alt="設定" class="icon"></a>
+    </div>
+</div>
 <div class="container">
     <h1>⚠ 系統載入失敗</h1>
     <p>很抱歉，系統目前無法載入，請稍後再試或點擊下方按鈕重新載入。</p>
