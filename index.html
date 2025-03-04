@@ -48,6 +48,7 @@
             background: linear-gradient(to right, #f9a06f, #ec6f5d);
             display: inline-block;
             margin-left: 10px;
+            cursor: pointer;
         }
         .container {
             background: white;
@@ -68,6 +69,7 @@
             background-color: #f9a06f;
             display: inline-block;
             margin-left: 10px;
+            cursor: pointer;
         }
         .reload-btn {
             display: inline-block;
@@ -77,6 +79,27 @@
             color: white;
             text-decoration: none;
             border-radius: 5px;
+        }
+        #xssModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+        #modalOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
         }
     </style>
 </head>
@@ -89,7 +112,7 @@
         <span>黃議廷你好</span>
         <a href="#">ENGLISH</a>
         <a href="index.html"><img src="https://myfcu.fcu.edu.tw/main/S9909/myfcumain/img/ui/homepage.png" alt="首頁" class="icon"></a>
-        <a href="index.html"><img src="https://myfcu.fcu.edu.tw/main/S9909/myfcumain/img/ui/gear.png" alt="設定" class="icon"></a>
+        <a href="#"><img src="https://myfcu.fcu.edu.tw/main/S9909/myfcumain/img/ui/gear.png" alt="設定" class="icon" onclick="openXSSModal()"></a>
     </div>
 </div>
 <div class="container">
@@ -97,5 +120,30 @@
     <p>很抱歉，系統目前無法載入，請稍後再試或點擊下方按鈕重新載入。</p>
     <a href="#" class="reload-btn" onclick="location.reload();">重新載入</a>
 </div>
+
+<!-- XSS 測試模態框 -->
+<div id="modalOverlay" onclick="closeXSSModal()"></div>
+<div id="xssModal">
+    <h2>🔒 XSS 測試</h2>
+    <input type="text" id="xssInput" placeholder="輸入內容">
+    <button onclick="testXSS()">提交</button>
+    <p id="xssOutput"></p>
+    <button onclick="closeXSSModal()">關閉</button>
+</div>
+
+<script>
+    function openXSSModal() {
+        document.getElementById('xssModal').style.display = 'block';
+        document.getElementById('modalOverlay').style.display = 'block';
+    }
+    function closeXSSModal() {
+        document.getElementById('xssModal').style.display = 'none';
+        document.getElementById('modalOverlay').style.display = 'none';
+    }
+    function testXSS() {
+        let userInput = document.getElementById('xssInput').value;
+        document.getElementById('xssOutput').innerHTML = userInput; // 直接插入可能導致 XSS
+    }
+</script>
 </body>
 </html>
